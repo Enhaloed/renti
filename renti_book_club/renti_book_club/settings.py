@@ -152,5 +152,4 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'book_club/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'book_club/static/')
