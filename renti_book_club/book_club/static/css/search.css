@@ -1,0 +1,37 @@
+#search-form{
+    width: max-content;
+    margin: 0 auto;
+}
+
+.search-title{
+    font-weight: bold;
+    font-size: 18px;
+    width: max-content;
+    margin: 0 auto 20px auto;
+}
+
+#search-form{
+    width: max-content;
+    margin: 0 auto;
+}
+
+#search-form > *{
+    display: inline-block;
+}
+
+.no-results-text{
+    font-style: italic;
+    width: max-content;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#search-results{
+    padding-top: 50px;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.number-of-results-text{
+    padding-bottom: 10px;
+}

@@ -1,5 +1,42 @@
 {%  extends 'book_club/html/base.html' %}
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
 
 {% block body %}
-
+    {{ block.super }}
+    <div id="search">
+        <div class="search-title">Book Search</div>
+        <form id="search-form" method="post" action="{% url 'book_club_search' %}">
+            {% csrf_token %}
+            {{ search_form }}
+            <div class="form-submit-button">
+                <input type="submit" value="Search" name="search-form">
+            </div>
+        </form>
+    </div>
+    {% if books|length > 0  %}
+        <div id="search-results">
+            <div class="number-of-results">
+                <div class="number-of-results-text">
+                    Showing <b>{{ books|length }}</b> results:
+                </div>
+            </div>
+        {% for book in books %}
+            <div class="book">
+                <div class="book-details">
+                    {{ book.title }} - {{ book.author.name }} ({{ book.genre.name }})
+                </div>
+            </div>
+        {% endfor %}
+    {% elif is_search %}
+        <div class="no-search-results">
+            <div class="no-results-text">
+                No results. Try a different search.
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
