@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        {% block head %}
+            <meta name="description" content="Renti Book Club">
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{% block title %}Renti Book Club{% block subtitle %}{% endblock %}{% endblock %}</title>
+            {% block js %}{% endblock js %}
+            {% block css %}
+                <link rel="stylesheet" href="{% static 'css/base.css' %}">
+            {% endblock css %}
+        {% endblock %}
+    </head>
+    <body>
+    {% block header %}
+        <div id="header">
+            <div class="header-content">
+                <a id="site-title"href="{% url 'book_club_search' %}">
+                    <div>{% block header-title %}Renti Book Club{% endblock %}</div>
+                </a>
+            </div>
+        </div>
+    {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    height: max-content;
+    background-color: #FFF1A5;
+    margin-bottom: 30px;
+}
+
+.header-content{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 5px 0;
+}
+
+.header-content a{
+    text-decoration: none;
+}
+
+#site-title{
+    font-size: 18px;
+    display: inline-block;
+    line-height:20px;
+    bottom: 10px;
+    color: #FD6536;
+    width: max-content;
+    margin: 0 auto;
+}
