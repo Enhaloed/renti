@@ -36,3 +36,4 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
 `python manage.py runserver`
 
 You can now access all the pages at localhost e.g. http://127.0.0.1:8000/search/
+You can also access the admin site via http://127.0.0.1:8000/admin/
