@@ -1,3 +1,6 @@
+import os
+import re
+
 """
 Django settings for renti_book_club project.
 
@@ -23,9 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_@$+se3fwj6zg6-1w^i-0tb46^qy0mur-^%%@%gnfn0cf=lciy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('PRODUCTION'):
+    print('Running in PRODUCTION mode...')
+    DEBUG = False
+else:
+    print('Running in DEBUG mode...')
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -73,10 +81,31 @@ WSGI_APPLICATION = 'renti_book_club.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+if os.environ.get('DATABASE_URL'):  # Heroku parsing
+    db_url_re = re.compile(r'postgres:\/\/(\S+):(\S+)@(\S+):(\d+)\/(\S+)')
+    re_result:list = re.findall(db_url_re, os.environ.get('DATABASE_URL'))
+    match:tuple = re_result[0]
+
+    db_user = match[0]
+    db_pass = match[1]
+    db_host = match[2]
+    db_port = match[3]
+    db_name = match[4]
+else:
+    db_user = os.environ.get('DB_USER')
+    db_pass = os.environ.get('DB_PASS')
+    db_host = os.environ.get('DB_HOST')
+    db_port = os.environ.get('DB_PORT')
+    db_name = os.environ.get('DB_NAME')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': db_user,
+        'NAME': db_name,
+        'PASSWORD': db_pass,
+        'HOST': db_host,
+        'PORT': db_port
     }
 }
 
