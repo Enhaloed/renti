@@ -1,1 +1,1 @@
-web: gunicorn renti_book_club.wsgi
+web: gunicorn renti_book_club.renti_book_club.wsgi
