@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "genre": "Fiction",
+    "cover_image": "link_to_cover_image"
+  },
+  {
+    "id": 2,
+    "title": "Becoming",
+    "author": "Michelle Obama",
+    "genre": "Biography",
+    "cover_image": "link_to_cover_image"
+  },
+  {
+    "id": 3,
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Science Fiction",
+    "cover_image": "link_to_cover_image"
+  }
+]
